@@ -1,3 +1,10 @@
+## Modified StyleGAN3 Repo
+
+### Changes Made
+- tied to python 3.7 syntax
+- .jpgs instead of .pngs for training
+- easy restart settings (set initial augment strength using `--initstrength`)
+
 ## Alias-Free Generative Adversarial Networks (StyleGAN3)<br><sub>Official PyTorch implementation of the NeurIPS 2021 paper</sub>
 
 ![Teaser image](./docs/stylegan3-teaser-1920x1006.png)

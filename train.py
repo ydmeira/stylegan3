@@ -263,7 +263,7 @@ def main(**kwargs):
 
     # Initial Augmentation Strength.
     if opts.initstrength is not None:
-        assert opts.isinstance(initstrength, float)
+        assert isinstance(opts.initstrength, float)
         c.augment_p = opts.initstrength
 
     # Resume.

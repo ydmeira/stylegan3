@@ -5,6 +5,7 @@
 - .jpgs instead of .pngs for training
 - easy restart settings (set initial augment strength using `--initstrength`)
 - option to mirror dataset vertically (`--mirrory`)
+- brought back option to disable color augmentations (`--augpipe=bg`)
 
 ## Alias-Free Generative Adversarial Networks (StyleGAN3)<br><sub>Official PyTorch implementation of the NeurIPS 2021 paper</sub>
 

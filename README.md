@@ -6,6 +6,7 @@
 - easy restart settings (set initial augment strength using `--initstrength`)
 - option to mirror dataset vertically (`--mirrory`)
 - brought back option to disable color augmentations (`--augpipe=bg`)
+- resume from the latest pkl file in the outdir (`--resume=latest`)
 
 ## Alias-Free Generative Adversarial Networks (StyleGAN3)<br><sub>Official PyTorch implementation of the NeurIPS 2021 paper</sub>
 

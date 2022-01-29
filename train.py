@@ -167,6 +167,7 @@ def locate_latest_pkl(outdir: str):
 # Misc settings.
 @click.option('--desc',         help='String to include in result dir name', metavar='STR',     type=str)
 @click.option('--metrics',      help='Quality metrics', metavar='[NAME|A,B,C|none]',            type=parse_comma_separated_list, default='fid50k_full', show_default=True)
+@click.option('--metricsfreq', help='How often to run metrics', metavar='FREQ',                type=click.IntRange(min=1), default=12, show_default=True)
 @click.option('--kimg',         help='Total training duration', metavar='KIMG',                 type=click.IntRange(min=1), default=25000, show_default=True)
 @click.option('--tick',         help='How often to print progress', metavar='KIMG',             type=click.IntRange(min=1), default=4, show_default=True)
 @click.option('--snap',         help='How often to save snapshots', metavar='TICKS',            type=click.IntRange(min=1), default=50, show_default=True)
@@ -230,6 +231,7 @@ def main(**kwargs):
     c.G_opt_kwargs.lr = (0.002 if opts.cfg == 'stylegan2' else 0.0025) if opts.glr is None else opts.glr
     c.D_opt_kwargs.lr = opts.dlr
     c.metrics = opts.metrics
+    c.metrics_snapshots = opts.metricsfreq
     c.total_kimg = opts.kimg
     c.kimg_per_tick = opts.tick
     c.image_snapshot_ticks = c.network_snapshot_ticks = opts.snap

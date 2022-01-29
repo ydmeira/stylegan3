@@ -115,6 +115,7 @@ def training_loop(
     kimg_per_tick           = 4,        # Progress snapshot interval.
     image_snapshot_ticks    = 50,       # How often to save image snapshots? None = disable.
     network_snapshot_ticks  = 50,       # How often to save network snapshots? None = disable.
+    metrics_snapshots       = 12,       # How often to run metrics, metrics_snapshots * network_snapshot_ticks
     resume_pkl              = None,     # Network pickle to resume training from.
     resume_kimg             = 0,        # First kimg to report when resuming training.
     cudnn_benchmark         = True,     # Enable torch.backends.cudnn.benchmark?
@@ -372,7 +373,7 @@ def training_loop(
                     pickle.dump(snapshot_data, f)
 
         # Evaluate metrics.
-        if (snapshot_data is not None) and (len(metrics) > 0):
+        if (snapshot_data is not None) and (cur_tick % (metrics_snapshots * network_snapshot_ticks) == 0) and (len(metrics) > 0):
             if rank == 0:
                 print('Evaluating metrics...')
             for metric in metrics:
